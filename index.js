@@ -1,12 +1,15 @@
-// arrow functions
-const calcAge = (birthYear) => 2037 - birthYear;
-
-const yearsUntilRetirement = (birthYear, firstName) => {
-    const ageNow = 2037 - birthYear;
-    const retirement = 65;
-    const yearsLeft = retirement - ageNow;
-    // return yearsLeft;
-    return `${firstName} retires in ${yearsLeft} years`
+// calling function from another function body
+function cutFruitPieces(fruit) {
+    return fruit * 4;
 }
 
-console.log(yearsUntilRetirement(2020, 'Pradeep'));
+function fruitProcessor(apples, oranges) {
+    const apple_pieces = cutFruitPieces(apples);
+    const orange_pieces = cutFruitPieces(oranges);
+    const juice = `Juice with ${apple_pieces} apple pieces and ${orange_pieces} orange pieces`;
+
+    return juice;
+}
+
+const juice = fruitProcessor(40, 4);
+console.log(juice);
