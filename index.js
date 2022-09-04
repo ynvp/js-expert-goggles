@@ -1,15 +1,21 @@
-// calling function from another function body
-function cutFruitPieces(fruit) {
-    return fruit * 4;
+let calcAverage = (score1, score2, score3) => {
+    return (score1 + score2 + score3) / 3;
 }
 
-function fruitProcessor(apples, oranges) {
-    const apple_pieces = cutFruitPieces(apples);
-    const orange_pieces = cutFruitPieces(oranges);
-    const juice = `Juice with ${apple_pieces} apple pieces and ${orange_pieces} orange pieces`;
+dolphin_average = calcAverage(44, 23, 71);
+koala_average = calcAverage(65, 54, 49);
+console.log(dolphin_average, koala_average);
 
-    return juice;
+function checkWinner(avgDolphins, avgKoalas) {
+    if (avgDolphins >= 2 * avgKoalas) {
+        console.log(`Dolphins win 🥇(${avgDolphins} vs. ${avgKoalas})`);
+    }
+    else if (avgKoalas >= 2 * avgDolphins) {
+        console.log(`Koalas win 🎉(${avgKoalas} vs. ${avgDolphins})`);
+    } else {
+        console.log('No team won the match');
+    }
 }
 
-const juice = fruitProcessor(40, 4);
-console.log(juice);
+checkWinner(dolphin_average, koala_average);
+checkWinner(1000, 11100);
