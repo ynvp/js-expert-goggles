@@ -1,31 +1,48 @@
-// Arrays
+// Array methods
 
-const friends = ["Pradeep", "Yendluri", "Naga"];
+const friends = ['Pradeep', 'Yendluri', "Naga"];
+
+// inserts element at the end of array
+const newLength = friends.push("Vara");
+
+console.log(newLength);
 console.log(friends);
 
-const years = new Array(1991, 1994, 1200);
-console.log(years);
+// inserts element at the start of the array 0th index
+friends.unshift("Yen");
 
-const classes = new Array('B123', 'B213', 23)
-console.log(classes);
+console.log(friends);
 
-console.log(friends.length);
-console.log(years.length)
-console.log(classes.length);
+// remove element from end of array and returns the removed element
+let removedElement = friends.pop();
+console.log(friends);
+console.log(removedElement);
 
-//last element
-console.log(friends[friends.length - 1])
 
-console.log(friends[0]);
-console.log(classes[4]);
+removedElement = friends.pop();
 
-// can mutate element of an array with diff element
-// cannot change entire array
+console.log(removedElement);
 
-friends[2] = 'Vara';
+// remove element from the 0th index
+friends.shift()
 console.log(friends)
 
-const firstName = 'Yendluri'
-const pradeep = [firstName, 'Naga', "Vara", 2037 - 1991, 'student', friends];
+// to find index of element
 
-console.log(pradeep.length)
+let index = friends.indexOf('Pradeep');
+console.log(index);
+
+// index will be -1 if element does not exist in array
+index = friends.indexOf('asdf');
+console.log(index);
+
+// to find if element exists in array
+// includes uses strict equality (===)
+
+console.log(friends.includes('Pradeep'));
+console.log(friends);
+
+// can use includes in conditionals
+if (friends.includes('Yendluri')) {
+    console.log(`You have a friend called Yendluri`)
+}
