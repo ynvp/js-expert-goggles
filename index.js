@@ -1,19 +1,30 @@
 const pradeep = {
     firstName: 'Pradeep',
     lastName: 'Yendluri',
-    age: 24,
+    birthYear: 1999,
     job: 'tester',
-    friends: ['Naga', 'Vara', "Yendluri"]
+    friends: ['Naga', 'Vara', "Yendluri"],
+    hasDriversLicense: true,
+
+    //method
+    // calcAge: function (birthYear) {
+    //     return 2037 - birthYear;
+    // }
+
+    // calcAge: function () {
+    //     return 2037 - this.birthYear;
+    // }
+
+    calcAge: function () {
+        this.age = 2039 - this.birthYear;
+        return this.age;
+    },
+
+    returnSummary: () => {
+        return `${pradeep.firstName} is a ${pradeep.age} old ${pradeep.job}. and he has ${pradeep.hasDriversLicense ? 'a drivers license' : 'no drivers license'}`
+    }
 };
 
-console.log(pradeep.lastName);
-console.log(pradeep['lastName']);
-
-const nameKey = 'Name';
-
-console.log(pradeep['first' + nameKey]);
-
-// compute property name then we can use [] notation
-// else . notation is better with clean implementation
-
-console.log(`${pradeep.firstName} has ${pradeep.friends.length} friends, and his best friend is called ${pradeep.friends[0]}`)
+pradeep.calcAge();
+console.log(pradeep.age)
+console.log(pradeep.returnSummary());
