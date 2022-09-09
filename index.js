@@ -1,20 +1,19 @@
-let calcTip = (billValue) => {
-    let tip = 0;
-    if (billValue >= 50 && billValue <= 300) {
-        tip = billValue * 0.15;
-    } else {
-        tip = billValue * .2;
-    }
-    return tip;
-}
+const pradeep = {
+    firstName: 'Pradeep',
+    lastName: 'Yendluri',
+    age: 24,
+    job: 'tester',
+    friends: ['Naga', 'Vara', "Yendluri"]
+};
 
-bills = [125, 555, 44];
-tips = [];
+console.log(pradeep.lastName);
+console.log(pradeep['lastName']);
 
-total = [];
-for (let i = 0; i < bills.length; i++) {
-    tips.push(calcTip(bills[i]));
-    total.push(bills[i] + tips[i]);
-}
-console.log(total)
-console.log(tips);
+const nameKey = 'Name';
+
+console.log(pradeep['first' + nameKey]);
+
+// compute property name then we can use [] notation
+// else . notation is better with clean implementation
+
+console.log(`${pradeep.firstName} has ${pradeep.friends.length} friends, and his best friend is called ${pradeep.friends[0]}`)
