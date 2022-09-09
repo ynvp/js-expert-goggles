@@ -1,30 +1,37 @@
-const pradeep = {
-    firstName: 'Pradeep',
-    lastName: 'Yendluri',
-    birthYear: 1999,
-    job: 'tester',
-    friends: ['Naga', 'Vara', "Yendluri"],
-    hasDriversLicense: true,
-
-    //method
-    // calcAge: function (birthYear) {
-    //     return 2037 - birthYear;
-    // }
-
-    // calcAge: function () {
-    //     return 2037 - this.birthYear;
-    // }
-
-    calcAge: function () {
-        this.age = 2039 - this.birthYear;
-        return this.age;
+let miller = {
+    fullName: 'Mark Miller',
+    mass: 78,
+    height: 1.69,
+    calcBMI: function () {
+        this.bmi = this.mass / (this.height * this.height);
+        return this.bmi;
     },
 
-    returnSummary: () => {
-        return `${pradeep.firstName} is a ${pradeep.age} old ${pradeep.job}. and he has ${pradeep.hasDriversLicense ? 'a drivers license' : 'no drivers license'}`
+    summary: function (compName, compBMI) {
+        console.log(`${this.fullName}'s BMI (${this.bmi} is higher than ${compName}'s (${compBMI}))`)
     }
 };
 
-pradeep.calcAge();
-console.log(pradeep.age)
-console.log(pradeep.returnSummary());
+let smith = {
+    fullName: 'John Smith',
+    mass: 92,
+    height: 1.95,
+    calcBMI: function () {
+        this.bmi = this.mass / (this.height * this.height);
+        return this.bmi;
+    },
+
+    summary: (compName, compBMI) => {
+        console.log(`${this.fullName}'s BMI (${this.bmi}) is higher than ${compName}'s (${compBMI})`)
+    }
+}
+
+smith.calcBMI();
+miller.calcBMI();
+
+if (smith.bmi > miller.bmi) {
+    smith.summary(miller.fullName, miller.bmi)
+} else {
+    console.log('x')
+    miller.summary(smith.fullName, smith.bmi)
+}
